@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
-import { CreateVerificationAccountRepository } from "../../../domain/repositories/create-varification-repository";
-import { VerificationAccount } from "../../../domain/entities/verification-account.entity";
+import { CreateVerificationAccountRepository } from "../../../../domain/repositories/create-varification-repository";
+import { VerificationAccount } from "../../../../domain/entities/verification-account.entity";
 import { DatabaseService } from "apps/auth/src/root/application/database/services/database.service";
 import { generateOTP } from "@eternaljs/otp-generator";
 
@@ -23,7 +23,7 @@ export class CreateVerificationAccountRepositoryImpl implements CreateVerificati
     }
 
     generateExpirationDate(minutes: number = 5): Date {
-        const currentDate = new Date(2025, 2, 20);
+        const currentDate = new Date();
         const expirationDate = new Date(currentDate);
         expirationDate.setMinutes(currentDate.getMinutes() + minutes);
         return expirationDate;

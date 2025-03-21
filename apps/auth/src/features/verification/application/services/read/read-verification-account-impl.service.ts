@@ -6,6 +6,7 @@ import { ReadVerificationAccountService } from '../../../domain/services/read-ve
 export class ReadVerificationAccountImplService implements ReadVerificationAccountService {
   constructor(
     private readonly verificationAccountRepository: ReadVerificationAccountRepositoryImpl,
+    
   ){}
 
   async findOneByCode(code: string) {

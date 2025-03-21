@@ -3,18 +3,18 @@ import {
   Controller,
   Post,
 } from '@nestjs/common';
-import { ReadVerificationAccountImplService } from '../../../application/services/read/read-verification-account-impl.service';
-import { VerificationCodeDto } from '../../dto/verification-code.dto';
+import { VerificationCodeDto } from '../../out/dto/verification-code.dto';
+import { VerificationAccountImplService } from '../../../application/services/create/verification-account-impl.service';
 
 @Controller('verification/account')
 export class VerificationAccountCodeController {
   constructor(
-    private readonly verificationAccountService: ReadVerificationAccountImplService
+    private readonly verificationAccountService:VerificationAccountImplService
   ){}
-  
+
   @Post()
   verification(@Body() body: VerificationCodeDto) {
-    return this.verificationAccountService.findOneByCode(body.code);
+    return this.verificationAccountService.verificationAccount(body.code);
   }
 
 }

@@ -1,8 +1,8 @@
 import { ConflictException, Injectable } from '@nestjs/common';
-import { CreateUserService, UserDto } from '../../domain/services/create-user-service';
-import { User } from '../../domain/entities/user.entity';
-import { CreateUserRepositoryImpl } from '../../adapters/out/repositories/create/create-user-repository-impl.provider';
-import { ReadUserRepositoryImpl } from '../../adapters/out/repositories/read/read-user-repository.provider';
+import { CreateUserService, UserDto } from '../../../domain/services/create-user-service';
+import { CreateUserRepositoryImpl } from '../../../adapters/out/repositories/create/create-user-repository-impl.provider';
+import { ReadUserRepositoryImpl } from '../../../adapters/out/repositories/read/read-user-repository.provider';
+import { User } from '../../../domain/entities/user.entity';
 @Injectable()
 export class CreateUserServiceImpl implements CreateUserService {
 

@@ -16,4 +16,12 @@ export class ReadUserRepositoryImpl implements ReadUserRepository {
             }
         }) as User;
     }
+
+    async findOneByUuid(uuid: string): Promise<User> {
+        return await this.databaseService.user.findUnique({
+            where:{
+                uuid
+            }
+        }) as User;
+    }
 }

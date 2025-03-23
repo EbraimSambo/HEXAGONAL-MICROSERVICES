@@ -16,11 +16,12 @@ export class CreateUserEventService {
   async handleUserCreated(event: UserCreatedEvent) {
     const {email, uuid} = event.user
     const codeVerification = await this.verificationService.create({userUuid: uuid})
-    const messageBody = `Conta criada com sucesso aqui esta o seu codigo: ${codeVerification.code}`;
+    const messageBody = `Conta criada com sucesso aqui esta`;
     this.logger.debug('📤 Evento ouvido e enviando mensagem para fila RabbitMQ...');
-    return await this.client.rabbitClient.emit("email_send", {
+    return await this.client.rabbitClient.emit("email_send_code", {
       email,
-      messageBody
+      messageBody,
+      code: codeVerification.code
     });
   }
 }

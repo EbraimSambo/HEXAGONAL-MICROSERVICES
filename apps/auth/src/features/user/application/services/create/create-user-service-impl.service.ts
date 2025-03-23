@@ -17,6 +17,7 @@ export class CreateUserServiceImpl implements CreateUserService {
 
     if (userExisting) throw new ConflictException("Ja existe um usuario com este email");
 
+    
     const user = new User({...dto});
 
     return await this.createUserRepo.save({

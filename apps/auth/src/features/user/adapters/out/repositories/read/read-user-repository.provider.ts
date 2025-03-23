@@ -13,7 +13,7 @@ export class ReadUserRepositoryImpl implements ReadUserRepository {
         return await this.databaseService.user.findUnique({
             where:{
                 email
-            }
+            },
         }) as User;
     }
 
@@ -21,6 +21,9 @@ export class ReadUserRepositoryImpl implements ReadUserRepository {
         return await this.databaseService.user.findUnique({
             where:{
                 uuid
+            },
+            omit:{
+                password: true
             }
         }) as User;
     }

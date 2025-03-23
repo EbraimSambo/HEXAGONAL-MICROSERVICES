@@ -8,7 +8,7 @@ import { UpdateEmailDto } from './dto/update-email.dto';
 export class EmailController {
   constructor(private readonly emailService: EmailService) {}
 
-  @MessagePattern('email_send') 
+  @MessagePattern('email_send_code') 
   create(@Payload() createEmailDto: CreateEmailDto) {
     return this.emailService.create(createEmailDto);
   }

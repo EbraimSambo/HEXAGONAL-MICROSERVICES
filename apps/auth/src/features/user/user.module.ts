@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { CreateUserRepositoryImpl } from './adapters/out/repositories/create/create-user-repository-impl.provider';
-import { CreateUserController } from './adapters/in/controllers/create/create-user.controller';
 import { DatabaseModule } from '../../root/application/database/database.module';
 import { ReadUserRepositoryImpl } from './adapters/out/repositories/read/read-user-repository.provider';
 import { UpdateUserImplService } from './application/services/update/update-user-impl.service';
@@ -13,7 +12,7 @@ import { ReadUserImplService } from './application/services/read/read-user-impl.
     DatabaseModule,
   ],
   controllers: [
-    CreateUserController
+
   ],
   providers: [
     CreateUserRepositoryImpl,
@@ -25,7 +24,8 @@ import { ReadUserImplService } from './application/services/read/read-user-impl.
   ],
   exports: [
     UpdateUserImplService,
-    ReadUserImplService
+    ReadUserImplService,
+    CreateUserServiceImpl,
   ]
 })
 export class UserModule {}

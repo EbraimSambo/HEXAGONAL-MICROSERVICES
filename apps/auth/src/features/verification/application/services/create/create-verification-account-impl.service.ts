@@ -11,7 +11,7 @@ export class CreateVerificationAccountImplService implements CreateVerificationA
   ) { }
 
   async create(dto: VerificationAccountDto): Promise<VerificationAccount> {
-    return await this.verificationRepo.save(new VerificationAccount({ identifier: dto.userUuid}))
+    return await this.verificationRepo.save(dto.userUuid)
   }
 
 }

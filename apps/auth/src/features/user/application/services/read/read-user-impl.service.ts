@@ -13,4 +13,8 @@ export class ReadUserImplService implements ReadUserService {
     if(!userExisting) throw new NotFoundException("User not found");
     return userExisting;
   }
+
+  async findOneByEmail(email: string): Promise<User> {
+      return await this.readUserRepo.findOneByEmail(email);
+  }
 }
